@@ -31,6 +31,7 @@ export default {
 @import "../app-variables";
 .slide{
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 .slide1{

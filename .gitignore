@@ -6,6 +6,7 @@
 /out-tsc
 platforms
 hooks
+.cloud
 # Runtime data
 pids
 *.pid
