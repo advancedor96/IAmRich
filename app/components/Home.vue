@@ -21,7 +21,7 @@ export default {
   methods:{
     share(){
       var image = imageSourceModule.fromFile("~/diamond.png");
-      SocialShare.shareImage(image);
+      SocialShare.shareImage(image, "How would you like to share this image?");
     }
   }
 };
