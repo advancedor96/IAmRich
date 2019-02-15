@@ -4,11 +4,25 @@
       <!-- <Image src="~/diamond.png" stretch="none" /> -->
       <Carousel>
         <CarouselItem id="slide1" class="slide slide1">
-          <Button text="Share" @tap="share"></Button>
+          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
+            <Button text="Share" class="btn btn-primary" @tap="share('diamond.png')"></Button>
+          </FlexboxLayout>
         </CarouselItem>
-        <CarouselItem id="slide2" class="slide slide2"></CarouselItem>
-        <CarouselItem id="slide2" class="slide slide3"></CarouselItem>
-        <CarouselItem id="slide2" class="slide slide4"></CarouselItem>
+        <CarouselItem id="slide2" class="slide slide2">
+          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
+            <Button text="Share" class="btn btn-primary" @tap="share('dollar.jpg')"></Button>
+          </FlexboxLayout>
+        </CarouselItem>
+        <CarouselItem id="slide2" class="slide slide3">
+          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
+            <Button text="Share" class="btn btn-primary" @tap="share('gold.jpg')"></Button>
+          </FlexboxLayout>
+        </CarouselItem>
+        <CarouselItem id="slide2" class="slide slide4">
+          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
+            <Button text="Share" class="btn btn-primary" @tap="share('ring.jpg')"></Button>
+          </FlexboxLayout>
+        </CarouselItem>
       </Carousel>
     </StackLayout>
   </Page>
@@ -19,8 +33,8 @@ var SocialShare = require("nativescript-social-share");
 var imageSourceModule = require("image-source");
 export default {
   methods:{
-    share(){
-      var image = imageSourceModule.fromFile("~/diamond.png");
+    share(filename){
+      var image = imageSourceModule.fromFile(`~/${filename}`);
       SocialShare.shareImage(image, "How would you like to share this image?");
     }
   }
@@ -29,6 +43,10 @@ export default {
 
 <style scoped lang="scss">
 @import "../app-variables";
+// .container{
+//   border-width: 5;
+//   border-color: yellow;
+// }
 .slide{
   background-repeat: no-repeat;
   background-position: center;
