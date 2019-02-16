@@ -1,30 +1,48 @@
 <template>
   <Page class="page" actionBarHidden="true">
-    <StackLayout>
-      <!-- <Image src="~/diamond.png" stretch="none" /> -->
-      <Carousel>
-        <CarouselItem id="slide1" class="slide slide1">
-          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
-            <Button text="Share" class="btn btn-primary" @tap="share('diamond.png')"></Button>
+    <GridLayout>
+      <Carousel height="100%" width="100%" 
+                pageChanged="myChangeEvent" pageTapped="mySelectedEvent" 
+                showIndicator="true" verticalAlignment="top" 
+                indicatorAnimation="slide" color="white"
+      >
+        <CarouselItem class="slide slide1">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('diamond.png')"></Label>
           </FlexboxLayout>
         </CarouselItem>
-        <CarouselItem id="slide2" class="slide slide2">
-          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
-            <Button text="Share" class="btn btn-primary" @tap="share('dollar.jpg')"></Button>
+        <CarouselItem class="slide slide2">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('dollar.png')"></Label>
           </FlexboxLayout>
         </CarouselItem>
-        <CarouselItem id="slide2" class="slide slide3">
-          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
-            <Button text="Share" class="btn btn-primary" @tap="share('gold.jpg')"></Button>
+        <CarouselItem class="slide slide3">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('gold.png')"></Label>
           </FlexboxLayout>
         </CarouselItem>
-        <CarouselItem id="slide2" class="slide slide4">
-          <FlexboxLayout flexDirection="column-reverse" height="100%" width="100%">
-            <Button text="Share" class="btn btn-primary" @tap="share('ring.jpg')"></Button>
+        <CarouselItem class="slide slide4">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('ring.png')"></Label>
+          </FlexboxLayout>
+        </CarouselItem>
+        <CarouselItem class="slide slide5">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('gold2.png')"></Label>
+          </FlexboxLayout>
+        </CarouselItem>
+        <CarouselItem class="slide slide6">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('ship.png')"></Label>
+          </FlexboxLayout>
+        </CarouselItem>
+        <CarouselItem class="slide slide7">
+          <FlexboxLayout height="100%" width="100%" class="myLayout">
+            <Label class="fa share_icon" color="#fff" text.decode="&#xf1e0;" @tap="share('shoes.png')"></Label>
           </FlexboxLayout>
         </CarouselItem>
       </Carousel>
-    </StackLayout>
+    </GridLayout>
   </Page>
 </template>
 
@@ -34,8 +52,11 @@ var imageSourceModule = require("image-source");
 export default {
   methods:{
     share(filename){
-      var image = imageSourceModule.fromFile(`~/${filename}`);
+      var image = imageSourceModule.fromFile(`~/images/${filename}`);
       SocialShare.shareImage(image, "How would you like to share this image?");
+    },
+    mySelectedEvent(){
+      console.log('tapped')
     }
   }
 };
@@ -43,28 +64,41 @@ export default {
 
 <style scoped lang="scss">
 @import "../app-variables";
-// .container{
-//   border-width: 5;
-//   border-color: yellow;
-// }
+.myLayout{
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.share_icon{
+  font-size: 38;
+  padding-top:10;
+  padding-right:10;
+}
 .slide{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 .slide1{
-  background-image: url("~/diamond.png");
+  background-image: url("~/images/diamond.png");
 }
 .slide2{
-  background-image: url("~/dollar.jpg");
+  background-image: url("~/images/dollar.jpg");
 }
 .slide3{
-  background-image: url("~/gold.jpg");
+  background-image: url("~/images/gold.jpg");
 }
 .slide4{
-  background-image: url("~/ring.jpg");
+  background-image: url("~/images/ring.jpg");
 }
-
+.slide5{
+  background-image: url("~/images/gold2.jpg");
+}
+.slide6{
+  background-image: url("~/images/ship.jpg");
+}
+.slide7{
+  background-image: url("~/images/shoes.jpg");
+}
 
 
 

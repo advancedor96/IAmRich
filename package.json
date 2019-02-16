@@ -1,11 +1,11 @@
 {
     "nativescript": {
         "id": "org.nativescript.IAmRich",
-        "tns-android": {
-            "version": "5.1.0"
-        },
         "tns-ios": {
             "version": "5.1.1"
+        },
+        "tns-android": {
+            "version": "5.1.0"
         }
     },
     "description": "NativeScript Application",
